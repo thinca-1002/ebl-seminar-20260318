@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EBLパーソナル 募集セミナー</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/theme/white.css">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Montserrat:wght@400;600;700;800;900&family=DM+Sans:wght@400;500;700;900&display=swap');
+:root{--b:#E1530D;--bk:#1A1A1A;--tx:#333;--sub:#666;--lt:#999;--gbg:#F5F5F5;}
+.reveal{font-size:26px;font-family:'Noto Sans JP',sans-serif;}
+.reveal h1,.reveal h2,.reveal h3{text-transform:none;color:var(--bk);text-align:left;}
+.reveal h1{font-size:2.4em;font-weight:900;line-height:1.2;letter-spacing:-0.02em;}
+.reveal h2{font-size:1.6em;font-weight:900;line-height:1.3;}
+.reveal p{line-height:1.8;color:var(--tx);text-align:left;font-size:0.95em;}
+.reveal .slides section{padding:44px 56px;box-sizing:border-box;text-align:left;}
+/* Top bar removed - replaced with h2 underline accent */
+.reveal .slides section::before{display:none;}
+/* Short accent line under h2 (only on information slides) */
+h2.ul::after{content:'';display:block;width:100%;max-width:200px;height:4px;background:var(--b);margin-top:0.4em;border-radius:2px;}
+.sb{color:#fff!important;}.sb h1,.sb h2,.sb p{color:#fff!important;}
+/* Utils */
+.nb{font-family:'Noto Sans JP',sans-serif;font-weight:900;color:var(--b);line-height:1;letter-spacing:-0.02em;}
+.fe{font-family:'Montserrat',sans-serif;}
+.acc{color:var(--b);font-weight:700;}
+/* === LAYOUT PATTERNS === */
+/* A: Split (text left + image right) */
+.sp{display:flex;gap:2.5em;align-items:flex-start;}
+.sp .t{flex:1;} .sp .v{width:400px;flex-shrink:0;}
+.sp .v img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;}
+.ib{background:var(--gbg);border-radius:12px;overflow:hidden;display:flex;align-items:center;justify-content:center;}
+/* B: Full center text */
+.fc{display:flex!important;align-items:center;justify-content:center;text-align:center;}
+.fc h2{text-align:center;}
+/* C: Left half color + right half white */
+.half{display:flex;padding:0!important;}
+.half .hl{flex:1;background:var(--b);color:#fff;padding:44px 40px;display:flex;flex-direction:column;justify-content:center;}
+.half .hl h2,.half .hl p{color:#fff!important;text-align:left;}
+.half .hr{flex:1;padding:44px 40px;display:flex;flex-direction:column;justify-content:center;}
+/* D: Cards */
+.cds{display:flex;gap:1em;}
+.cd{flex:1;padding:1.1em;background:#fff;border-radius:10px;border:1px solid #E5E5E5;}
+/* E: KPI row */
+.kpi{display:flex;gap:1.2em;text-align:center;}
+.kpi>div{flex:1;padding:0.9em;background:#fff;border-radius:10px;border:1px solid #E5E5E5;}
+.kpi .n{font-family:'Noto Sans JP',sans-serif;font-weight:900;color:var(--b);font-size:2.2em;line-height:1;}
+.kpi .u{font-size:0.75em;color:var(--sub);}
+.kpi .d{font-size:0.7em;color:var(--lt);margin-top:0.2em;}
+/* F: Table */
+.reveal table{border-collapse:collapse;width:100%;font-size:0.85em;text-align:left;}
+.reveal table th{background:var(--gbg);padding:0.7em 1em;font-weight:700;color:var(--bk);border-bottom:2px solid #ddd;}
+.reveal table td{padding:0.7em 1em;border-bottom:1px solid #eee;}
+/* G: Flow */
+.fl{display:flex;align-items:flex-start;gap:0;}
+.fl .s{flex:1;text-align:center;position:relative;padding:0 0.5em;}
+.fl .s::after{content:'→';position:absolute;right:-0.5em;top:0.8em;font-size:1.4em;color:var(--b);font-weight:700;}
+.fl .s:last-child::after{display:none;}
+.fl .s .nm{display:inline-flex;width:44px;height:44px;border-radius:50%;background:var(--b);color:#fff;align-items:center;justify-content:center;font-weight:800;font-family:'DM Sans','Montserrat',sans-serif;font-size:1.1em;margin-bottom:0.5em;box-shadow:0 2px 8px rgba(225,83,13,0.25);}
+/* H: Big number full */
+.bn{text-align:center;padding:1em 0;}
+.bn .n{font-family:'Montserrat',sans-serif;font-size:5em;font-weight:900;color:var(--b);line-height:1;}
+/* I: Grid 2x3 */
+.g23{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0.8em;}
+.g23>div{padding:0.8em;background:#fff;border-radius:8px;border:1px solid #E5E5E5;}
+/* J: Left image + right text (reverse split) */
+.spr{display:flex;gap:2.5em;align-items:flex-start;}
+.spr .v{width:400px;flex-shrink:0;}
+.spr .v img{width:100%;height:100%;object-fit:cover;border-radius:12px;display:block;}
+.spr .t{flex:1;}
+/* Check */
+.ck{display:flex;flex-direction:column;gap:0.5em;}
+.ck p{margin:0;padding-left:1.5em;position:relative;}
+.ck p::before{content:'☐';position:absolute;left:0;color:var(--b);}
+/* Background decorations */
+/* White slides: subtle orange curve top-right */
+section:not(.sb):not(.fc):not(.half) {
+  background-image: 
+    radial-gradient(ellipse at 95% 5%, rgba(225,83,13,0.04) 0%, transparent 50%);
+}
+/* Gray slides: dot pattern */
+section[data-background-color="#F5F5F5"]:not(.sb) {
+  background-image: 
+    radial-gradient(rgba(225,83,13,0.03) 1px, transparent 1px),
+    radial-gradient(ellipse at 5% 95%, rgba(225,83,13,0.03) 0%, transparent 50%);
+  background-size: 32px 32px, 100% 100%;
+}
+/* Fulltext center: radial glow */
+.fc {
+  background-image: radial-gradient(ellipse at 50% 50%, rgba(225,83,13,0.03) 0%, transparent 60%);
+}
+/* Arrow step flow (reference design style) */
+.arrow-flow{display:flex;align-items:stretch;gap:0;margin:1.5em 0;}
+.arrow-flow .af-step{flex:1;position:relative;padding:1em 1em 1em 1.8em;color:#fff;display:flex;flex-direction:column;justify-content:center;min-height:80px;}
+.arrow-flow .af-step:first-child{padding-left:1em;border-radius:8px 0 0 8px;}
+.arrow-flow .af-step::after{content:'';position:absolute;right:-20px;top:50%;transform:translateY(-50%);width:0;height:0;border-top:40px solid transparent;border-bottom:40px solid transparent;border-left:20px solid;z-index:1;}
+.arrow-flow .af-step:last-child::after{display:none;border-radius:0 8px 8px 0;}
+.arrow-flow .af-step:last-child{border-radius:0 8px 8px 0;}
+.arrow-flow .af-step .af-num{font-family:'DM Sans',sans-serif;font-weight:900;font-size:0.7em;opacity:0.8;margin-bottom:0.2em;color:#fff;}
+.arrow-flow .af-step .af-txt{font-weight:700;font-size:0.82em;line-height:1.3;color:#fff;}
+/* Color steps */
+.af-s1{background:#C44A0B;}.af-s1::after{border-left-color:#C44A0B;}
+.af-s2{background:#D4570E;}.af-s2::after{border-left-color:#D4570E;}
+.af-s3{background:#E1530D;}.af-s3::after{border-left-color:#E1530D;}
+.af-s4{background:#E8723A;}.af-s4::after{border-left-color:#E8723A;}
+.af-s5{background:#EF9060;}.af-s5::after{border-left-color:#EF9060;}
+.af-s6{background:#F4A880;}.af-s6::after{border-left-color:#F4A880;}
+/* Before/After comparison */
+.ba{display:flex;gap:0;margin:1em 0;}
+.ba .ba-col{flex:1;padding:0.8em;}
+.ba .ba-before{background:#fff;border-radius:10px 0 0 10px;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.ba .ba-after{background:#FFF5F0;border-radius:0 10px 10px 0;box-shadow:0 2px 12px rgba(0,0,0,0.06);}
+.ba .ba-hd{text-align:center;font-weight:700;font-size:0.85em;padding:0.4em;border-radius:6px;margin-bottom:0.6em;}
+.ba .ba-before .ba-hd{background:#ddd;color:#666;}
+.ba .ba-after .ba-hd{background:#E1530D;color:#fff;}
+.ba .ba-row{display:flex;align-items:center;gap:0.5em;margin-bottom:0.4em;font-size:0.82em;}
+.ba .ba-arrow{color:#E1530D;font-weight:700;font-size:1.2em;flex-shrink:0;}
+/* Footer */
+.gf{position:fixed;bottom:14px;left:48px;right:48px;display:flex;justify-content:space-between;align-items:center;z-index:100;pointer-events:none;}
+.gf .lo{font-family:'Montserrat',sans-serif;font-weight:800;font-size:11px;color:var(--lt);letter-spacing:0.1em;}
+.gf .pn{font-family:'Montserrat',sans-serif;font-weight:600;font-size:11px;color:var(--lt);}
+.gf.dk .lo,.gf.dk .pn{color:rgba(255,255,255,0.4);}
+.reveal .progress span{background:var(--b);}.reveal .slide-number{display:none;}.reveal .controls{color:var(--b);}
+</style>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+
+<!-- S1: 表紙（独自レイアウト：右にオレンジ曲線） -->
+<section data-background-color="#F5F5F5">
+<div style="position:absolute;top:-20%;right:-10%;width:55%;height:140%;background:#E1530D;border-radius:50% 0 0 50%;"></div>
+<div style="position:relative;z-index:1;">
+<h1 style="font-size:2.4em;margin:0;">開始2ヶ月で<br>利益25万円を作った<br>仕組みを公開</h1>
+<p style="font-size:0.82em;color:#666;margin:1.5em 0 0;">2026.03.18（水）21:00〜 / Zoomオンライン / 参加費無料</p>
+</div>
+<div style="position:absolute;bottom:48px;right:52px;z-index:1;text-align:center;">
+<img src="aucfan-logo.png" alt="aucfan" style="width:85px;display:block;margin:0 auto;">
+<p style="font-size:0.58em;color:rgba(255,255,255,0.85);margin:0.5em 0 0;letter-spacing:0.05em;">Powered by aucfan group</p>
+</div>
+</section>
+
+<!-- S2: ルール（パターンA：splitで右に画像） -->
+<section>
+<div class="sp">
+<div class="t">
+<h2>参加時のルール</h2>
+<div style="margin-top:1em;display:flex;flex-direction:column;gap:0.8em;">
+<p style="margin:0;">着席して集中できる環境でお聞きください</p>
+<p style="margin:0;">講義中のマイクはミュートでお願いいたします</p>
+<p style="margin:0;">他の作業を行いながらの受講は控えてください</p>
+<p style="margin:0;color:#E1530D;font-weight:700;">チャットでの質問は大歓迎です</p>
+</div>
+</div>
+<div class="v"><div class="ib" style="height:340px;"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&q=80" alt="team"></div></div>
+</div>
+</section>
+
+<!-- S3: ゴール（パターンD：4カード横並び） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.6em;font-size:1.8em;">本日のゴール</h2>
+<p style="font-size:1.1em;font-weight:700;color:#1A1A1A;margin-bottom:0.8em;">この2時間が終わる頃には──</p>
+<div class="cds">
+<div class="cd" style="text-align:center;border-top:4px solid #E1530D;"><span class="nb" style="font-size:1.8em;">01</span><p style="font-weight:700;color:#1A1A1A;margin:0.3em 0 0;">「何で稼ぐべきか」が明確に</p></div>
+<div class="cd" style="text-align:center;border-top:4px solid #E1530D;"><span class="nb" style="font-size:1.8em;">02</span><p style="font-weight:700;color:#1A1A1A;margin:0.3em 0 0;">「物販の仕組み」をイメージできる</p></div>
+<div class="cd" style="text-align:center;border-top:4px solid #E1530D;"><span class="nb" style="font-size:1.8em;">03</span><p style="font-weight:700;color:#1A1A1A;margin:0.3em 0 0;">「次の一歩」が、<br>わかる</p></div>
+<div class="cd" style="text-align:center;border-top:4px solid #E1530D;"><span class="nb" style="font-size:1.8em;">04</span><p style="font-weight:700;color:#1A1A1A;margin:0.3em 0 0;">「自分にもできる」と思える</p></div>
+</div>
+</section>
+
+<!-- S4: セクション01（パターンE：ブランドカラー全面） -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:500px;height:500px;top:-150px;right:-100px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;"><span class="fe" style="font-weight:800;font-size:2em;">01</span><span style="display:inline-block;width:2px;height:0.9em;background:rgba(255,255,255,0.4);margin:0 0.6em;vertical-align:middle;"></span><span style="font-weight:900;font-size:2em;">自己紹介</span></div>
+</section>
+
+<!-- S5: 渡邉（パターンA：split） -->
+<section>
+<div style="position:absolute;top:-15%;right:-8%;width:40%;height:120%;background:rgba(225,83,13,0.03);border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+<p style="font-size:0.72em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">登壇者紹介</p>
+<div class="sp">
+<div class="t">
+<h2 style="margin:0 0 0.1em;">渡邉 泰三</h2>
+<p style="font-size:0.82em;color:#666;margin:0 0 1em;">株式会社ピュアネス 代表取締役</p>
+<div style="display:flex;align-items:baseline;gap:0.4em;margin-bottom:0.8em;"><span class="nb" style="font-size:2.2em;">10</span><span style="font-size:0.82em;color:#666;">年の物販経験</span></div>
+<div style="display:flex;align-items:baseline;gap:0.4em;margin-bottom:0.8em;"><span class="nb" style="font-size:2.2em;">2,000</span><span style="font-size:0.82em;color:#666;">万円超の最高月商</span></div>
+<div style="display:flex;align-items:baseline;gap:0.4em;margin-bottom:0.8em;"><span class="nb" style="font-size:2.2em;">200</span><span style="font-size:0.82em;color:#666;">人超のオンラインサロンを主催</span></div>
+<p style="font-size:0.82em;color:#666;margin-top:1em;padding:0.7em;background:#F5F5F5;border-radius:8px;">e Business Laboは、<span class="acc">上場企業オークファングループ</span>が運営する物販特化型のビジネスコミュニティです。</p>
+</div>
+<div class="v"><div class="ib" style="height:380px;"><img src="渡邉さん画像.png" alt="渡邉泰三"></div></div>
+</div>
+</section>
+
+<!-- S6: 瑞稀（パターンJ：reverse split = 左画像＋右テキスト） -->
+<section data-background-color="#F5F5F5">
+<div style="position:absolute;bottom:-10%;left:-5%;width:30%;height:80%;background:rgba(225,83,13,0.025);border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+<p style="font-size:0.72em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">登壇者紹介</p>
+<div class="spr">
+<div class="v"><div class="ib" style="height:380px;"><img src="瑞稀さん画像.png" alt="瑞稀"></div></div>
+<div class="t">
+<h2 style="margin:0 0 0.1em;">瑞稀</h2>
+<p style="font-size:0.82em;color:#666;margin:0 0 1em;">EBLパーソナル マネージャー / BOSS DIRECT 運営責任者</p>
+<p style="margin-bottom:0.5em;">メーカー仕入れのプロフェッショナル</p>
+<p style="margin-bottom:0.5em;">EBLパーソナル生の個別指導を担当</p>
+<p style="color:#E1530D;font-weight:700;">本日、実際の商品事例もご紹介します</p>
+</div>
+</div>
+</section>
+
+<!-- S7: セクション02 -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:500px;height:500px;top:-150px;right:-100px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;"><span class="fe" style="font-weight:800;font-size:2em;">02</span><span style="display:inline-block;width:2px;height:0.9em;background:rgba(255,255,255,0.4);margin:0 0.6em;vertical-align:middle;"></span><span style="font-weight:900;font-size:2em;">なぜ今「収入の柱」が必要か</span></div>
+</section>
+
+<!-- S8: 問いかけ（パターンB：全幅テキスト大） -->
+<section class="fc">
+<h2 style="font-size:2.4em;">今、世界で何が起きているか<br>知っていますか？</h2>
+</section>
+
+<!-- S9: AI（パターンC：左半分オレンジ＋右半分白） -->
+<section class="half" data-background-color="#FFFFFF">
+<div class="hl">
+<h2 style="font-size:1.5em;margin:0 0 0.8em;">すでにアメリカではAIがホワイトカラーの仕事を奪い始めている</h2>
+<p style="font-size:0.92em;">Anthropicの報告：<span style="font-weight:700;">「ホワイトカラーの大不況が起こりうる」</span>（2026年3月）</p>
+</div>
+<div class="hr">
+<div style="display:flex;align-items:baseline;gap:0.4em;margin-bottom:1.5em;"><span class="nb" style="font-size:3em;">62</span><span style="color:#666;">%がブルーカラーへの転職を検討</span></div>
+<div style="display:flex;align-items:baseline;gap:0.4em;margin-bottom:1.5em;"><span class="nb" style="font-size:3em;">35</span><span style="color:#666;">%減 新卒・未経験者向けの求人</span></div>
+<p style="font-weight:700;color:#1A1A1A;">あなたの仕事は、5年後も同じ形で存在していますか？</p>
+<p style="font-size:0.7em;color:#999;margin-top:1.2em;">出典：Fortune 2026/3/6 Anthropic報告 / Newsweek 3,000人調査</p>
+</div>
+</section>
+
+<!-- S10: ブルーカラー（パターンE：KPI横並び） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:1em;">一方で、日本のブルーカラーの賃金はすでに上がっている</h2>
+<div style="margin:1.2em 0;display:flex;flex-direction:column;gap:0.8em;">
+<div style="display:flex;align-items:center;gap:1em;">
+<span style="width:130px;font-size:0.85em;text-align:right;">タクシー運転手</span>
+<div style="flex:1;background:#eee;border-radius:4px;height:32px;position:relative;"><div style="width:80%;height:100%;background:#E1530D;border-radius:4px;"></div></div>
+<span class="nb" style="font-size:1.4em;width:80px;">40<span style="font-size:0.5em;color:#666;">%増</span></span>
+</div>
+<div style="display:flex;align-items:center;gap:1em;">
+<span style="width:130px;font-size:0.85em;text-align:right;">建設作業員</span>
+<div style="flex:1;background:#eee;border-radius:4px;height:32px;position:relative;"><div style="width:62%;height:100%;background:#E1530D;border-radius:4px;"></div></div>
+<span class="nb" style="font-size:1.4em;width:80px;">31<span style="font-size:0.5em;color:#666;">%増</span></span>
+</div>
+<div style="display:flex;align-items:center;gap:1em;">
+<span style="width:130px;font-size:0.85em;text-align:right;">全体平均</span>
+<div style="flex:1;background:#eee;border-radius:4px;height:32px;position:relative;"><div style="width:14%;height:100%;background:#E1530D;border-radius:4px;"></div></div>
+<span class="nb" style="font-size:1.4em;width:80px;">7<span style="font-size:0.5em;color:#666;">%増</span></span>
+</div>
+</div>
+<p style="font-weight:500;margin-top:0.5em;">「デスクワーク」より「手を動かす仕事」が評価される時代へ</p>
+<p style="font-size:0.7em;color:#999;">出典：日経新聞 2026年1月</p>
+</section>
+
+<!-- S11: 家計（パターンA：split＋数字） -->
+<section>
+<div class="sp">
+<div class="t">
+<h2>日本の家計は、すでに限界に近い</h2>
+<div class="kpi" style="margin:1.2em 0;">
+<div><p class="d">実質賃金</p><span class="n" style="font-size:1.6em;">4</span><span class="u">年連続マイナス</span></div>
+<div><p class="d">4人家族の年間負担増</p><span class="n" style="font-size:1.6em;">+8.9</span><span class="u">万円</span></div>
+</div>
+<div style="padding:1em 1.2em;background:#F5F5F5;border-radius:8px;">
+<p style="font-weight:500;color:#999;margin:0;font-size:0.82em;">「副業しましょう」という話ではありません。</p>
+<p style="font-weight:900;color:#E1530D;margin:0.4em 0 0;font-size:1.3em;line-height:1.4;">「収入の柱をもう1本持つ」<br>という話です。</p>
+</div>
+</div>
+<div class="v"><div class="ib" style="height:340px;"><img src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80" alt="money"></div></div>
+</div>
+</section>
+
+<!-- S12: 3条件（パターンD：3カード） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.8em;">では、何で柱を作るか？</h2>
+<p style="margin-bottom:1em;">収入の柱に必要な条件は<span class="acc">3つ</span>あります。</p>
+<div style="display:flex;flex-direction:column;gap:0.7em;">
+<div style="display:flex;align-items:center;gap:1em;padding:0.8em 1em;background:#fff;border:1px solid #E5E5E5;border-radius:10px;">
+<div style="width:48px;height:48px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP';font-weight:900;font-size:1.1em;flex-shrink:0;">①</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">成長市場であること</p><p style="font-size:0.82em;color:#666;margin:0.2em 0 0;">縮小する市場ではどんなに頑張っても収入は増えない</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:1em;padding:0.8em 1em;background:#fff;border:1px solid #E5E5E5;border-radius:10px;">
+<div style="width:48px;height:48px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP';font-weight:900;font-size:1.1em;flex-shrink:0;">②</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">個人でも始められること</p><p style="font-size:0.82em;color:#666;margin:0.2em 0 0;">初期費用数万円、特別な資格も不要</p></div>
+</div>
+<div style="display:flex;align-items:center;gap:1em;padding:0.8em 1em;background:#fff;border:1px solid #E5E5E5;border-radius:10px;">
+<div style="width:48px;height:48px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP';font-weight:900;font-size:1.1em;flex-shrink:0;">③</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">AIを「敵」ではなく「味方」にできること</p><p style="font-size:0.82em;color:#666;margin:0.2em 0 0;">AIに奪われるのではなく、AIで効率化できる</p></div>
+</div>
+</div>
+</section>
+
+<!-- S13: EC物販（パターンA：split） -->
+<section>
+<div class="sp">
+<div class="t">
+<p style="font-size:0.82em;color:#666;margin:0 0 0.3em;">3つの条件をすべて満たす答え──</p>
+<h2 style="font-size:2.2em;margin:0 0 0.8em;line-height:1.3;">それが<br><span class="acc" style="font-size:1.2em;">「EC物販」</span></h2>
+<div style="display:flex;flex-direction:column;gap:0.7em;">
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><span style="color:#E1530D;font-weight:900;">①</span><div><p style="font-weight:700;margin:0;">成長市場</p><p style="font-size:0.8em;color:#666;margin:0.1em 0 0;">世界EC売上<span class="nb" style="font-size:1.4em;">8</span><span style="color:#E1530D;font-weight:700;">兆ドル</span>／越境EC年平均成長率<span class="nb" style="font-size:1.4em;">26.2</span><span style="color:#E1530D;font-weight:700;">%</span></p></div></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><span style="color:#E1530D;font-weight:900;">②</span><div><p style="font-weight:700;margin:0;">個人で始められる</p><p style="font-size:0.8em;color:#666;margin:0.1em 0 0;">初期費用数万円、特別な資格も不要</p></div></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><span style="color:#E1530D;font-weight:900;">③</span><div><p style="font-weight:700;margin:0;">AIが味方になる</p><p style="font-size:0.8em;color:#666;margin:0.1em 0 0;">世界の小売経営者の<span class="nb" style="font-size:1.4em;">77</span><span style="color:#E1530D;font-weight:700;">%</span>がAIを活用して売上成長を報告</p></div></div>
+</div>
+<p style="font-size:0.7em;color:#999;margin-top:0.8em;">出典：BigCommerce / Report Ocean / IBM × Fortune 2025</p>
+</div>
+<div class="v"><div class="ib" style="height:380px;"><img src="https://images.unsplash.com/photo-1553413077-190dd305871c?w=800&q=80" alt="EC物販イメージ"></div></div>
+</div>
+</section>
+
+<!-- S13.5: AI時代に個人の物販が有利な理由 -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">よくある疑問</p>
+<h2 style="font-size:1.8em;margin:0 0 0.3em;">AI時代だからこそ、<br>個人の物販が有利になっている</h2>
+<p style="font-size:0.85em;color:#666;margin:0 0 1em;">「AIで物販はなくなるのでは？」── 実はむしろ逆です。</p>
+<div style="display:flex;flex-direction:column;gap:0.7em;">
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border:1px solid #E5E5E5;border-radius:10px;">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP';font-weight:900;font-size:1em;flex-shrink:0;">①</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">モノが介在するビジネスは、AIに置き換えられない</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">デジタル完結の仕事は消える。でもモノが動く商売は消えない</p></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border:1px solid #E5E5E5;border-radius:10px;">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP';font-weight:900;font-size:1em;flex-shrink:0;">②</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">むしろAIが、面倒な作業を全部やってくれる</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">リサーチ・価格設定・商品説明作成──大企業がチームでやっていた業務がAI1つで可能に</p></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border:1px solid #E5E5E5;border-radius:10px;">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Noto Sans JP';font-weight:900;font-size:1em;flex-shrink:0;">③</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">パソコン1台で、場所を選ばず始められる</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">仕入れも販売もネットで完結。オフィス不要、通勤不要の自由な働き方</p></div>
+</div>
+</div>
+</section>
+
+<!-- S14: EC物販→メルカリへの導入 -->
+<section data-background-color="#F5F5F5">
+<div class="spr">
+<div class="v"><div class="ib" style="height:340px;"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80" alt="shopping"></div></div>
+<div class="t">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.3em;">ここまで聞いて、こう思いませんでしたか？</p>
+<h2 style="line-height:1.35;">「じゃあ、まずは<br><span class="acc">メルカリ</span>で始めればいいのかな」</h2>
+<p style="margin-top:1em;color:#666;">確かにメルカリは身近で、始めやすい。</p>
+<p style="color:#666;">家にある不用品を出せば、すぐに売れる。</p>
+<p style="font-weight:700;color:#1A1A1A;margin-top:1em;">でも、それを「毎月安定した収入の柱」にできるかというと──</p>
+</div>
+</div>
+</section>
+
+<!-- S15: メルカリ限界（パターンA：split） -->
+<section>
+<div style="position:absolute;top:-15%;right:-8%;width:40%;height:120%;background:rgba(225,83,13,0.03);border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+<div class="sp">
+<div class="t">
+<h2>メルカリで「収入の柱」を作ろうとすると──</h2>
+<div style="margin-top:1em;display:flex;flex-direction:column;gap:0.6em;">
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><div style="width:24px;height:24px;border:2px solid #E1530D;border-radius:4px;flex-shrink:0;margin-top:0.1em;"></div><p style="margin:0;">不用品はいつか売り切る。<span class="acc">次に売るものがない</span></p></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><div style="width:24px;height:24px;border:2px solid #E1530D;border-radius:4px;flex-shrink:0;margin-top:0.1em;"></div><p style="margin:0;">仕入れて売ろうとすると、梱包・発送の作業が増える</p></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><div style="width:24px;height:24px;border:2px solid #E1530D;border-radius:4px;flex-shrink:0;margin-top:0.1em;"></div><p style="margin:0;">1個売ったら終わり。同じ商品をリピートできない</p></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><div style="width:24px;height:24px;border:2px solid #E1530D;border-radius:4px;flex-shrink:0;margin-top:0.1em;"></div><p style="margin:0;">収入を伸ばそうとすると、<span class="acc">作業量も比例して増える</span></p></div>
+</div>
+<p style="color:#666;margin-top:1em;">メルカリは素晴らしいサービスです。でも、「収入の柱」を作る場所としては、限界がある。</p>
+</div>
+<div class="v"><div class="ib" style="height:340px;"><img src="https://images.unsplash.com/photo-1586880244406-556ebe35f282?w=600&q=80" alt="packages"></div></div>
+</div>
+</section>
+
+<!-- S16: 何が大事か（パターンB） -->
+<section class="fc">
+<div>
+<h2 style="font-size:2em;">物販で収入の柱を作るなら何が一番大事か？</h2>
+<p style="text-align:center;margin-top:1.5em;color:#999;">仕入れ？　販売？　発送？　マーケティング？</p>
+</div>
+</section>
+
+<!-- S17: 商品リサーチ（パターンH：ビッグテキスト） -->
+<section class="fc" data-background-color="#F5F5F5">
+<div>
+<h2 style="font-size:2.6em;color:#E1530D;">答えは「商品リサーチ」</h2>
+<p style="text-align:center;margin-top:1em;">EC物販で最も多くの時間を費やし、最も多くの人が挫折する工程。</p>
+</div>
+</section>
+
+<!-- S18: リサーチの罠（パターンG：フロー） -->
+<section>
+<h2 class="ul" style="margin-bottom:0.5em;">多くの物販実践者が陥るワナ</h2>
+<p style="font-weight:700;color:#1A1A1A;margin-bottom:0.5em;">永遠に続く商品リサーチの日々</p>
+<div class="arrow-flow">
+<div class="af-step af-s1"><p class="af-num">STEP 01</p><p class="af-txt">市場調査</p></div>
+<div class="af-step af-s2"><p class="af-num">STEP 02</p><p class="af-txt">競合調査</p></div>
+<div class="af-step af-s3"><p class="af-num">STEP 03</p><p class="af-txt">商品選定</p></div>
+<div class="af-step af-s4"><p class="af-num">STEP 04</p><p class="af-txt">利益計算</p></div>
+<div class="af-step af-s5"><p class="af-num">STEP 05</p><p class="af-txt">需要確認</p></div>
+<div class="af-step af-s6"><p class="af-num">STEP 06</p><p class="af-txt">個数決め</p></div>
+</div>
+<p style="color:#666;">せどりや転売は「仕入れたらゼロに戻る」モデル。毎月ゼロからリサーチをやり直す必要がある。</p>
+</section>
+
+<!-- S19: 質問（パターンB） -->
+<section class="fc" data-background-color="#F5F5F5">
+<div>
+<h2 style="text-align:center;font-size:2em;margin-bottom:1em;">ここで質問です</h2>
+<p style="text-align:center;font-size:1.2em;font-weight:700;color:#1A1A1A;margin-bottom:0.8em;">Q. 同じ条件の商品を再仕入れできますか？</p>
+<p style="text-align:center;font-size:1.2em;font-weight:700;color:#1A1A1A;margin-bottom:1.5em;">Q. 今月リサーチせずに先月と同じ実績を出せますか？</p>
+<p style="text-align:center;font-size:1.3em;color:#E1530D;font-weight:900;">→ 答えが「No」なら、<br>それは積み上がっていないビジネスです。</p>
+</div>
+</section>
+
+<!-- S20: 積み上げ（パターンC：half） -->
+<section class="half" data-background-color="#FFFFFF">
+<div class="hl">
+<h2 style="font-size:1.5em;">あなたが目指すべきビジネスの方向性</h2>
+</div>
+<div class="hr">
+<p style="font-size:1.15em;font-weight:900;color:#E1530D;">「積み上げできるビジネス」を選択してください。</p>
+<p style="color:#666;margin-top:1em;">毎月リセットされるモデルから、過去の努力が<span style="font-weight:700;color:#1A1A1A;">蓄積されるモデル</span>へ。</p>
+<p style="font-weight:700;color:#1A1A1A;margin-top:1em;">では、積み上げできるビジネスとは何か？</p>
+</div>
+</section>
+
+<!-- S20.5: フロー型 vs ストック型 -->
+<section>
+<h2 class="ul" style="margin-bottom:0.3em;">あなたが目指すのはどちらですか？</h2>
+<p style="font-size:0.85em;color:#666;margin:0 0 1em;">同じ物販でも、ビジネスモデルで収益の伸び方がまったく違います。</p>
+<div style="display:flex;gap:2em;">
+<!-- フロー型 -->
+<div style="flex:1;padding:1.2em;background:#F5F5F5;border-radius:12px;">
+<p style="font-weight:900;color:#999;font-size:1.1em;margin:0 0 0.3em;text-align:center;">フロー型</p>
+<p style="font-size:0.75em;color:#999;margin:0 0 0.8em;text-align:center;">メルカリ・単発販売</p>
+<!-- 棒グラフ：バラバラ -->
+<div style="display:flex;align-items:flex-end;gap:6px;height:140px;padding:0 1em;">
+<div style="flex:1;height:60%;background:#ccc;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:35%;background:#ccc;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:75%;background:#ccc;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:25%;background:#ccc;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:55%;background:#ccc;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:40%;background:#ccc;border-radius:3px 3px 0 0;"></div>
+</div>
+<div style="border-top:2px solid #ddd;margin:0 1em;"></div>
+<p style="font-size:0.72em;color:#999;text-align:center;margin:0.5em 0 0;">→ 時間</p>
+<p style="font-size:0.78em;color:#666;text-align:center;margin:0.8em 0 0;font-weight:500;">売ったら終わり。毎回ゼロから。<br>収入は安定しない。</p>
+</div>
+<!-- ストック型 -->
+<div style="flex:1;padding:1.2em;background:#FFF5F0;border-radius:12px;border:2px solid #E1530D;">
+<p style="font-weight:900;color:#E1530D;font-size:1.1em;margin:0 0 0.3em;text-align:center;">ストック型</p>
+<p style="font-size:0.75em;color:#E1530D;margin:0 0 0.8em;text-align:center;">仕組み化したEC物販</p>
+<!-- 棒グラフ：右肩上がり -->
+<div style="display:flex;align-items:flex-end;gap:6px;height:140px;padding:0 1em;">
+<div style="flex:1;height:15%;background:#E1530D;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:30%;background:#E1530D;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:45%;background:#E1530D;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:60%;background:#E1530D;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:78%;background:#E1530D;border-radius:3px 3px 0 0;"></div>
+<div style="flex:1;height:95%;background:#E1530D;border-radius:3px 3px 0 0;"></div>
+</div>
+<div style="border-top:2px solid #E1530D;margin:0 1em;"></div>
+<p style="font-size:0.72em;color:#E1530D;text-align:center;margin:0.5em 0 0;">→ 時間</p>
+<p style="font-size:0.78em;color:#1A1A1A;text-align:center;margin:0.8em 0 0;font-weight:500;">仕組みが積み上がる。<br><span class="acc">やるほど収入が伸び続ける。</span></p>
+</div>
+</div>
+</section>
+
+<!-- S21: セクション03 -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:500px;height:500px;top:-150px;right:-100px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;"><span class="fe" style="font-weight:800;font-size:2em;">03</span><span style="display:inline-block;width:2px;height:0.9em;background:rgba(255,255,255,0.4);margin:0 0.6em;vertical-align:middle;"></span><span style="font-weight:900;font-size:2em;">実績</span></div>
+</section>
+
+<!-- S23: 実績データ（上キャッチ大＋下に画像・説明） -->
+<section data-background-color="#F5F5F5">
+<!-- 上部：大きなキャッチ -->
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.3em;">2026年1月実績 ─ メーカーたった2社のみのアカウント</p>
+<h2 style="font-size:2.2em;margin:0 0 0.1em;">月利益 <span class="nb" style="font-size:1.4em;">74.5</span><span style="color:#E1530D;font-weight:900;">万円</span>　利益率 <span class="nb" style="font-size:1.4em;">38.9</span><span style="color:#E1530D;font-weight:900;">%</span></h2>
+<!-- 画像（大きく表示） -->
+<div style="background:#fff;border-radius:12px;border:1px solid #E5E5E5;overflow:hidden;margin-top:0.5em;">
+<img src="※OSRの業者2社のみだけを扱ったアカウントの成果.jpg" alt="2026年1月実績" style="width:100%;display:block;">
+</div>
+<!-- カード3つ横並び -->
+<div style="display:flex;gap:0.8em;margin-top:0.6em;">
+<div style="flex:1;padding:0.5em;background:#fff;border:1px solid #E5E5E5;border-radius:8px;text-align:center;"><p style="font-size:0.65em;color:#666;margin:0;">販売数</p><span class="nb" style="font-size:1.4em;">1,479</span><span style="font-size:0.7em;color:#666;"> コ</span></div>
+<div style="flex:1;padding:0.5em;background:#fff;border:1px solid #E5E5E5;border-radius:8px;text-align:center;"><p style="font-size:0.65em;color:#666;margin:0;">売上金額</p><span class="nb" style="font-size:1.4em;">1,915,293</span><span style="font-size:0.7em;color:#666;"> 円</span></div>
+<div style="flex:1;padding:0.5em;background:#fff;border:2px solid #E1530D;border-radius:8px;text-align:center;"><p style="font-size:0.65em;color:#E1530D;margin:0;">利益額</p><span class="nb" style="font-size:1.4em;">745,951</span><span style="font-size:0.7em;color:#666;"> 円</span></div>
+</div>
+<!-- 説明文 -->
+<p style="font-size:0.78em;color:#666;margin:0.5em 0 0;">取り扱いメーカーはわずか2社。仕組み化された物販だからこそ、<span style="color:#1A1A1A;font-weight:700;">少ないリソースでこの利益率を実現できる。</span></p>
+</section>
+
+<!-- S23.5: 実例商品導入 -->
+<section class="fc">
+<div>
+<p style="text-align:center;font-size:0.85em;color:#E1530D;font-weight:700;margin:0 0 0.5em;">実例紹介</p>
+<h2 style="font-size:2.2em;text-align:center;">では、その利益を生んだ<br>実際の商品をお見せします</h2>
+<p style="text-align:center;margin-top:1.2em;color:#666;">瑞稀さんが実際に扱った商品の中から、4つの事例をご紹介します。</p>
+</div>
+</section>
+
+<!-- S24: 実例商品その1 -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">CASE 01</p>
+<h2 style="margin:0 0 0.6em;">実例商品その1</h2>
+<div style="display:flex;gap:2em;align-items:stretch;">
+<div style="flex:1.3;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);"><img src="実例商品その１.jpg" alt="商品1" style="width:100%;display:block;"></div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div style="background:#E1530D;color:#fff;text-align:center;padding:0.6em;border-radius:10px 10px 0 0;font-weight:900;font-size:1em;">実績</div>
+<div style="background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 12px rgba(0,0,0,0.08);flex:1;display:flex;flex-direction:column;justify-content:center;">
+<table style="width:100%;font-size:1em;">
+<tr><td style="font-weight:700;color:#1A1A1A;padding:0.6em 1em;">Amazon販売価格</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">6,201円</td></tr>
+<tr><td style="font-weight:700;color:#E1530D;padding:0.6em 1em;">卸価格</td><td style="text-align:right;color:#E1530D;font-weight:700;padding:0.6em 1em;">3,920円</td></tr>
+<tr><td style="font-weight:700;padding:0.6em 1em;">粗利</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">+1,343円</td></tr>
+<tr style="background:#FFF5F0;"><td style="font-weight:900;color:#E1530D;padding:0.6em 1em;">粗利率</td><td style="text-align:right;font-weight:900;color:#E1530D;padding:0.6em 1em;font-size:1.2em;">22%</td></tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- S24b: 実例商品その2 -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">CASE 02</p>
+<h2 style="margin:0 0 0.6em;">実例商品その2</h2>
+<div style="display:flex;gap:2em;align-items:stretch;">
+<div style="flex:1.3;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);"><img src="実例商品その２.jpg" alt="商品2" style="width:100%;display:block;"></div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div style="background:#E1530D;color:#fff;text-align:center;padding:0.6em;border-radius:10px 10px 0 0;font-weight:900;font-size:1em;">実績</div>
+<div style="background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 12px rgba(0,0,0,0.08);flex:1;display:flex;flex-direction:column;justify-content:center;">
+<table style="width:100%;font-size:1em;">
+<tr><td style="font-weight:700;color:#1A1A1A;padding:0.6em 1em;">Amazon販売価格</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">1,950円</td></tr>
+<tr><td style="font-weight:700;color:#E1530D;padding:0.6em 1em;">卸価格</td><td style="text-align:right;color:#E1530D;font-weight:700;padding:0.6em 1em;">594円</td></tr>
+<tr><td style="font-weight:700;padding:0.6em 1em;">粗利</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">+620円</td></tr>
+<tr style="background:#FFF5F0;"><td style="font-weight:900;color:#E1530D;padding:0.6em 1em;">粗利率</td><td style="text-align:right;font-weight:900;color:#E1530D;padding:0.6em 1em;font-size:1.2em;">32%</td></tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- S24c: 実例商品その3 -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">CASE 03</p>
+<h2 style="margin:0 0 0.6em;">実例商品その3</h2>
+<div style="display:flex;gap:2em;align-items:stretch;">
+<div style="flex:1.3;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);"><img src="実例商品その３.png" alt="商品3" style="width:100%;display:block;"></div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div style="background:#E1530D;color:#fff;text-align:center;padding:0.6em;border-radius:10px 10px 0 0;font-weight:900;font-size:1em;">実績</div>
+<div style="background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 12px rgba(0,0,0,0.08);flex:1;display:flex;flex-direction:column;justify-content:center;">
+<table style="width:100%;font-size:1em;">
+<tr><td style="font-weight:700;color:#1A1A1A;padding:0.6em 1em;">Amazon販売価格</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">8,114円</td></tr>
+<tr><td style="font-weight:700;color:#E1530D;padding:0.6em 1em;">卸価格</td><td style="text-align:right;color:#E1530D;font-weight:700;padding:0.6em 1em;">3,657円</td></tr>
+<tr><td style="font-weight:700;padding:0.6em 1em;">粗利</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">+3,137円</td></tr>
+<tr style="background:#FFF5F0;"><td style="font-weight:900;color:#E1530D;padding:0.6em 1em;">粗利率</td><td style="text-align:right;font-weight:900;color:#E1530D;padding:0.6em 1em;font-size:1.2em;">39%</td></tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- S24d: 実例商品その4 -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">CASE 04</p>
+<h2 style="margin:0 0 0.6em;">実例商品その4</h2>
+<div style="display:flex;gap:2em;align-items:stretch;">
+<div style="flex:1.3;background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);"><img src="実例商品その４.png" alt="商品4" style="width:100%;display:block;"></div>
+<div style="flex:1;display:flex;flex-direction:column;">
+<div style="background:#E1530D;color:#fff;text-align:center;padding:0.6em;border-radius:10px 10px 0 0;font-weight:900;font-size:1em;">実績</div>
+<div style="background:#fff;border-radius:0 0 10px 10px;box-shadow:0 2px 12px rgba(0,0,0,0.08);flex:1;display:flex;flex-direction:column;justify-content:center;">
+<table style="width:100%;font-size:1em;">
+<tr><td style="font-weight:700;color:#1A1A1A;padding:0.6em 1em;">Amazon販売価格</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">3,905円</td></tr>
+<tr><td style="font-weight:700;color:#E1530D;padding:0.6em 1em;">卸価格</td><td style="text-align:right;color:#E1530D;font-weight:700;padding:0.6em 1em;">2,067円</td></tr>
+<tr><td style="font-weight:700;padding:0.6em 1em;">粗利</td><td style="text-align:right;font-weight:700;padding:0.6em 1em;">+914円</td></tr>
+<tr style="background:#FFF5F0;"><td style="font-weight:900;color:#E1530D;padding:0.6em 1em;">粗利率</td><td style="text-align:right;font-weight:900;color:#E1530D;padding:0.6em 1em;font-size:1.2em;">23%</td></tr>
+</table>
+</div>
+</div>
+</div>
+</section>
+
+<!-- S25: すごいでしょ（パターンB） -->
+<section class="fc">
+<div>
+<h2 style="font-size:2.2em;">すごいと思いませんか？</h2>
+<p style="text-align:center;font-weight:700;color:#1A1A1A;margin-top:1.5em;">でも──これ、どうやったか知ってますか？</p>
+</div>
+</section>
+
+<!-- S26: メーカー直取引（パターンA：split＋画像） -->
+<section data-background-color="#F5F5F5">
+<div style="position:absolute;top:-15%;right:-8%;width:40%;height:120%;background:rgba(225,83,13,0.03);border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+<div class="sp">
+<div class="t">
+<h2>答えは<br>「メーカー・問屋との直接取引」</h2>
+<p style="margin-top:1em;">メーカーと直接取引して「同じ商品を継続的に仕入れる」。一度開拓したメーカーが増えるほど、どんどん楽になっていく。</p>
+<p class="acc" style="margin-top:0.8em;">これが積み上げ式のビジネスモデルです。</p>
+</div>
+<div class="v"><div class="ib" style="height:300px;"><img src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?w=600&q=80" alt="warehouse"></div></div>
+</div>
+</section>
+
+<!-- S27: 流通図（パターンG：フロー縦） -->
+<section>
+<h2 style="margin-bottom:1em;">モノの流通を正しく理解しよう</h2>
+<div style="display:flex;align-items:center;gap:0;margin-top:1.5em;">
+<div style="flex:1;padding:1em 0.8em;background:#E1530D;color:#fff;border-radius:10px;text-align:center;font-weight:700;font-size:0.95em;">メーカー<br><span style="font-size:0.75em;font-weight:400;opacity:0.8;">1,000円で製造</span></div>
+<div style="padding:0 0.3em;color:#E1530D;font-size:1.3em;font-weight:700;">→</div>
+<div style="flex:1;padding:1em 0.8em;background:#fff;border:2px solid #E1530D;border-radius:10px;text-align:center;font-weight:700;font-size:0.95em;">問屋<br><span style="font-size:0.75em;font-weight:400;color:#666;">2,000円で仕入れ</span></div>
+<div style="padding:0 0.3em;color:#999;font-size:1.3em;font-weight:700;">→</div>
+<div style="flex:1;padding:1em 0.8em;background:#fff;border:1px solid #ddd;border-radius:10px;text-align:center;color:#666;font-size:0.95em;">小売店<br><span style="font-size:0.75em;">3,000円で仕入れ</span></div>
+<div style="padding:0 0.3em;color:#999;font-size:1.3em;font-weight:700;">→</div>
+<div style="flex:1;padding:1em 0.8em;background:#fff;border:1px solid #eee;border-radius:10px;text-align:center;color:#999;font-size:0.95em;">消費者<br><span style="font-size:0.75em;">4,000円で購入</span></div>
+</div>
+<p style="text-align:center;margin-top:1em;font-size:0.8em;color:#666;">← 上流ほど仕入れが安い →</p>
+</section>
+
+<!-- S28: どこから仕入れる（パターンB） -->
+<section class="fc" data-background-color="#F5F5F5">
+<div>
+<h2 style="font-size:2.2em;">では、あなたはどこから仕入れますか？</h2>
+<p style="text-align:center;color:#666;margin-top:1.5em;font-size:1.1em;">小売店から？　問屋から？　メーカーから？</p>
+</div>
+</section>
+
+<!-- S29: メーカーから（パターンB） -->
+<section class="fc">
+<div>
+<h2 style="font-size:1.8em;">もちろん、<span class="acc">メーカーから仕入れたい</span>ですよね</h2>
+<p style="text-align:center;margin-top:1em;">メーカーから直接仕入れれば、中間マージンがなくなる。</p>
+<p style="text-align:center;font-weight:700;color:#1A1A1A;margin-top:0.5em;">利益率が圧倒的に高くなる。</p>
+</div>
+</section>
+
+<!-- S30: 比較表（パターンF） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.8em;">全ての課題が乗り越えられるとしたらどうですか？</h2>
+<div class="ba">
+<div class="ba-col ba-before">
+<div class="ba-hd">Before（せどり・転売）</div>
+<div class="ba-row"><p style="margin:0;">・利益率 15%〜20%</p></div>
+<div class="ba-row"><p style="margin:0;">・仕入れは単発型</p></div>
+<div class="ba-row"><p style="margin:0;">・成長曲線は横ばい</p></div>
+<div class="ba-row"><p style="margin:0;">・毎回ゼロからリサーチ</p></div>
+</div>
+<div style="display:flex;align-items:center;padding:0 0.5em;">
+<span style="color:#E1530D;font-size:2em;font-weight:700;">▶</span>
+</div>
+<div class="ba-col ba-after">
+<div class="ba-hd">After（メーカー取引）</div>
+<div class="ba-row"><p style="margin:0;font-weight:700;color:#E1530D;">・利益率 5%〜40%</p></div>
+<div class="ba-row"><p style="margin:0;font-weight:700;color:#E1530D;">・継続型の仕入れ</p></div>
+<div class="ba-row"><p style="margin:0;font-weight:700;color:#E1530D;">・右肩上がりの成長</p></div>
+<div class="ba-row"><p style="margin:0;font-weight:700;color:#E1530D;">・リサーチが積み上がる</p></div>
+</div>
+</div>
+</section>
+
+<!-- S31: 壁（パターンJ：reverse split） -->
+<section>
+<div style="position:absolute;bottom:-10%;left:-5%;width:30%;height:80%;background:rgba(225,83,13,0.025);border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+<div class="spr">
+<div class="v"><div class="ib" style="height:340px;"><img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=600&q=80" alt="difficulty"></div></div>
+<div class="t">
+<h2>でも、メーカー取引できますか？</h2>
+<div class="ck" style="margin-top:1em;">
+<p>メーカーは簡単に個人を相手にしてくれない</p>
+<p>電話やメール、商談会でのアプローチ数が必要</p>
+<p>大ロットでの仕入れが前提</p>
+<p>ゼロから信頼関係を構築しなくてはいけない</p>
+</div>
+<p class="acc" style="font-size:1.1em;margin-top:1em;">→ 普通は、できないんです。</p>
+</div>
+</div>
+</section>
+
+<!-- S32: 問いかけ（パターンB） -->
+<section class="fc" data-background-color="#F5F5F5">
+<div>
+<h2 style="font-size:2.2em;text-align:center;">もし、これらの壁を<br>全て超えられる環境があるとしたら？</h2>
+</div>
+</section>
+
+<!-- S33: オークファン（全幅） -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.5em;">Answer</p>
+<h2 style="font-size:2em;margin:0 0 0.8em;">それを可能にしたのが<br>上場企業<span class="acc" style="font-size:1.1em;">オークファングループ</span>です</h2>
+<div style="display:flex;flex-direction:column;gap:0.8em;margin-bottom:1.2em;">
+<div style="display:flex;align-items:flex-start;gap:0.8em;padding:0.7em 1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<span style="color:#E1530D;font-size:0.9em;margin-top:0.1em;">■</span>
+<p style="margin:0;">グループ傘下に<span style="font-weight:700;color:#E1530D;">OSR（大阪船場流通マート）</span>を持ち、国内メーカー商談会を開催</p>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.8em;padding:0.7em 1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<span style="color:#E1530D;font-size:0.9em;margin-top:0.1em;">■</span>
+<p style="margin:0;">現在<span style="font-weight:700;color:#E1530D;">250社の国内メーカー・問屋</span>と提携。卸先は大手ドラッグストアなど</p>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.8em;padding:0.7em 1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<span style="color:#E1530D;font-size:0.9em;margin-top:0.1em;">■</span>
+<p style="margin:0;">毎月大阪で<span style="font-weight:700;color:#E1530D;">約300坪の会場でリアル商談会</span>を実施（月5日程度）</p>
+</div>
+</div>
+<p style="color:#999;font-size:0.85em;margin:0;">巷のビジネススクールや個人コンサルには、この仕組みは絶対に真似できません。</p>
+</section>
+
+<!-- S34: メーカー・問屋と繋がれる環境 -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.3em;">メーカー・問屋とすぐに繋がれる環境</h2>
+<div style="display:flex;gap:2em;align-items:center;margin-top:1em;">
+<div style="text-align:center;">
+<span class="nb" style="font-size:5em;">250</span><span style="font-size:1.5em;color:#666;">社以上</span>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:0.8em;">
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><span style="color:var(--b);font-size:0.9em;">■</span><div><p style="font-weight:700;margin:0;">250社以上のメーカー・問屋との卸取引ルートがある</p><p style="font-size:0.78em;color:#666;margin:0.2em 0 0;">卸先企業は大手ドラッグストアなど</p></div></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><span style="color:var(--b);font-size:0.9em;">■</span><div><p style="font-weight:700;margin:0;">個人では断られるメーカーにも交渉・仕入れが可能</p><p style="font-size:0.78em;color:#666;margin:0.2em 0 0;">すでに関係が構築されているため、ゼロからアプローチする必要がない</p></div></div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;"><span style="color:var(--b);font-size:0.9em;">■</span><div><p style="font-weight:700;margin:0;">毎月大阪でリアル商談会を開催</p><p style="font-size:0.78em;color:#666;margin:0.2em 0 0;">月5日程度、約300坪の会場でメーカーと小売事業者を繋ぐ</p></div></div>
+</div>
+</div>
+</section>
+
+<!-- S34.5a: 250社のインフラの壁 -->
+<section>
+<h2 class="ul" style="margin:0 0 0.5em;">250社のインフラは最高の環境。<br>でも──</h2>
+<p style="color:#666;margin:0 0 1em;">実は、初心者にとってはまだ2つの壁があります。</p>
+<div style="display:flex;flex-direction:column;gap:0.8em;">
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.9em 1.1em;background:#F5F5F5;border-radius:10px;">
+<div style="width:44px;height:44px;border-radius:50%;background:#ccc;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1em;flex-shrink:0;">①</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">250社の中から、自分で商品を選ぶのは難しい</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">どのメーカーの、どの商品が利益が出るのか。初心者には判断できない</p></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.9em 1.1em;background:#F5F5F5;border-radius:10px;">
+<div style="width:44px;height:44px;border-radius:50%;background:#ccc;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1em;flex-shrink:0;">②</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">商談会は大阪で月5日間だけ</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">東京・地方在住の方は、毎月大阪に通うのは現実的ではない</p></div>
+</div>
+</div>
+</section>
+
+<!-- S34.5b: 問いかけ → 実績 -->
+<section data-background-color="#F5F5F5">
+<h2 style="font-size:1.8em;margin:0 0 0.8em;">もし、250社の中からプロが厳選した商品を<br><span class="acc">完全オンラインで仕入れられる</span>としたら？</h2>
+<p style="color:#666;margin:0 0 0.8em;">その仕組みを使ったパーソナル生の実績がこちらです。</p>
+<div style="display:flex;gap:1.5em;margin-bottom:0.8em;">
+<div style="flex:1;padding:1em;background:#fff;border-radius:12px;border:1px solid #E5E5E5;text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.2em;">売上</p>
+<span class="nb" style="font-size:3em;">90</span><span style="font-size:1em;color:#666;">万円</span>
+</div>
+<div style="flex:1;padding:1em;background:#fff;border-radius:12px;border:2px solid #E1530D;text-align:center;">
+<p style="font-size:0.75em;color:#E1530D;margin:0 0 0.2em;">利益</p>
+<span class="nb" style="font-size:3em;">25</span><span style="font-size:1em;color:#666;">万円</span>
+</div>
+</div>
+<p style="font-weight:700;color:#1A1A1A;margin:0;">開始わずか<span class="acc">2ヶ月</span>。オンラインで仕入れて出品しただけで、この結果です。</p>
+</section>
+
+<!-- S34.5c: 仕組みの正体へ -->
+<section class="fc">
+<div>
+<h2 style="font-size:2.2em;text-align:center;">では、その仕組みの正体を<br>お見せします。</h2>
+</div>
+</section>
+
+<!-- S35a: BOSS DIRECT 登場（フルスクリーン） -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:600px;height:600px;top:-200px;right:-150px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:absolute;width:400px;height:400px;bottom:-150px;left:-100px;border-radius:50%;background:rgba(255,255,255,0.05);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;text-align:center;">
+<p style="font-size:0.9em;color:rgba(255,255,255,0.7);margin:0 0 0.8em;text-align:center;">250社のインフラ × プロの目利き × 完全オンライン</p>
+<h1 style="font-size:3.5em;text-align:center;margin:0 0 0.3em;letter-spacing:0.05em;">BOSS DIRECT</h1>
+<p style="font-size:1.2em;color:rgba(255,255,255,0.9);margin:0;font-weight:500;text-align:center;">みずきさんが選んだ商品を、みんなで売る。<br>新しい卸のカタチ。</p>
+</div>
+</section>
+
+<!-- S35b: BOSS DIRECT 詳細 -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin:0 0 0.6em;">BOSS DIRECT の4つのメリット</h2>
+<div style="display:flex;flex-direction:column;gap:0.7em;">
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1em;flex-shrink:0;">①</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">みずきさんが利益の取れる商品を厳選</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">自分でリサーチする必要なし。プロの目利きで商品が届く</p></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1em;flex-shrink:0;">②</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">大型ロットを分割、個人は必要な分だけ仕入れ</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">小資金からスタート可能。在庫リスクを最小限に</p></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1em;flex-shrink:0;">③</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">完全オンラインで仕入れ完結</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">大阪に行く必要なし。パソコン1台でどこからでも</p></div>
+</div>
+<div style="display:flex;align-items:flex-start;gap:1em;padding:0.8em 1.1em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);">
+<div style="width:44px;height:44px;border-radius:50%;background:#E1530D;color:#fff;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:1em;flex-shrink:0;">④</div>
+<div><p style="font-weight:700;color:#1A1A1A;margin:0;">請求書でAmazonの出品規制を解除</p><p style="font-size:0.8em;color:#666;margin:0.2em 0 0;">個人では取得困難なメーカー請求書が手に入る</p></div>
+</div>
+</div>
+</section>
+
+<!-- S36: BOSS DIRECT 実績（インパクト） -->
+<section data-background-color="#F5F5F5">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.3em;">BOSS DIRECT 2026年1月実績</p>
+<h2 style="font-size:1.8em;margin:0 0 0.8em;">この仕組みが生み出した数字</h2>
+<div style="display:flex;gap:1.2em;">
+<div style="flex:1;padding:1.2em;background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);text-align:center;">
+<p style="font-size:0.7em;color:#666;margin:0 0 0.3em;">商品卸個数</p>
+<span class="nb" style="font-size:2.8em;">18,821</span><span style="font-size:0.9em;color:#666;">個</span>
+</div>
+<div style="flex:1;padding:1.2em;background:#fff;border-radius:12px;box-shadow:0 2px 12px rgba(0,0,0,0.08);text-align:center;">
+<p style="font-size:0.7em;color:#666;margin:0 0 0.3em;">卸金額</p>
+<span class="nb" style="font-size:2.2em;">1,141</span><span style="font-size:0.9em;color:#666;">万円</span>
+</div>
+<div style="flex:1;padding:1.2em;background:#fff;border-radius:12px;border:2px solid #E1530D;box-shadow:0 2px 12px rgba(0,0,0,0.08);text-align:center;">
+<p style="font-size:0.7em;color:#E1530D;margin:0 0 0.3em;">利益率</p>
+<span class="nb" style="font-size:2.8em;">10-80</span><span style="font-size:0.9em;color:#666;">%</span>
+</div>
+</div>
+<p style="font-size:0.85em;color:#666;margin:0.8em 0 0;text-align:center;">たった1ヶ月で、<span style="font-weight:700;color:#1A1A1A;">18,000個以上の商品が会員の手元に届いています。</span></p>
+</section>
+
+<!-- S37: 販売の流れ（パターンG：フロー） -->
+<section>
+<h2 class="ul" style="margin-bottom:1em;">BOSS DIRECT を使った販売の流れ</h2>
+<div class="arrow-flow" style="margin:1.5em 0;">
+<div class="af-step af-s1" style="flex:1.2;"><p class="af-num">STEP 01</p><p class="af-txt">商品を選ぶ</p><p style="font-size:0.7em;opacity:0.8;margin:0.2em 0 0;color:#fff;">みずきさんが選定した商品リストから</p></div>
+<div class="af-step af-s3" style="flex:1;"><p class="af-num">STEP 02</p><p class="af-txt">届く</p><p style="font-size:0.7em;opacity:0.8;margin:0.2em 0 0;color:#fff;">自宅や外注先へ配送</p></div>
+<div class="af-step af-s5" style="flex:1;"><p class="af-num">STEP 03</p><p class="af-txt">売る</p><p style="font-size:0.7em;opacity:0.8;margin:0.2em 0 0;color:#fff;">Amazon/フリマで販売</p></div>
+</div>
+<p class="acc" style="text-align:center;font-size:1.1em;">通常かかる作業を丸っとショートカット！</p>
+</section>
+
+<!-- S38: 転換点（パターンB） -->
+<section class="fc" data-background-color="#F5F5F5">
+<div>
+<p style="text-align:center;color:#666;">ここまで聞いて、こう思いませんか？</p>
+<h2 style="font-size:2em;margin-top:0.3em;">「すごい環境だ。でも、自分にもできるのか？」</h2>
+<p style="text-align:center;font-weight:700;color:#E1530D;margin-top:1.5em;">── ここからが、本当に大事な話です。</p>
+</div>
+</section>
+
+<!-- S39: セクション04 -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:500px;height:500px;top:-150px;right:-100px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;"><span class="fe" style="font-weight:800;font-size:2em;">04</span><span style="display:inline-block;width:2px;height:0.9em;background:rgba(255,255,255,0.4);margin:0 0.6em;vertical-align:middle;"></span><span style="font-weight:900;font-size:2em;">EBLパーソナルとは</span></div>
+</section>
+
+<!-- S40: 残酷な現実（パターンB） -->
+<section class="fc">
+<h2 style="font-size:2.2em;">物販スクール業界全体の、<br>残酷な現実を知っていますか？</h2>
+</section>
+
+<!-- S41: アンケート（パターンE：KPI） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.5em;">物販スクール業界全体のアンケート結果</h2>
+<p style="font-size:0.75em;color:#999;margin:0 0 0.8em;">業界全体を対象にした第三者調査（出典：物販総合研究所 2024年1月）</p>
+<div style="display:flex;gap:2.5em;align-items:center;margin:1em 0;">
+<div style="width:200px;height:200px;border-radius:50%;background:conic-gradient(#E1530D 0% 33%,#eee 33% 100%);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+<div style="width:130px;height:130px;border-radius:50%;background:#F5F5F5;display:flex;flex-direction:column;align-items:center;justify-content:center;">
+<span class="nb" style="font-size:2em;">33</span><span style="font-size:0.8em;color:#666;">%</span>
+</div>
+</div>
+<div style="flex:1;display:flex;flex-direction:column;gap:1em;">
+<div style="padding:0.8em;background:#fff;border:1px solid #E5E5E5;border-radius:8px;">
+<p style="font-size:0.78em;color:#E1530D;font-weight:700;margin:0;">実際に稼げた人</p>
+<p style="font-weight:900;color:#1A1A1A;margin:0.2em 0 0;font-size:1.1em;">わずか3人に1人（33%）</p>
+</div>
+<div style="padding:0.8em;background:#fff;border:1px solid #E5E5E5;border-radius:8px;">
+<p style="font-size:0.78em;color:#E1530D;font-weight:700;margin:0;">「騙された」と感じた人</p>
+<p style="font-weight:900;color:#1A1A1A;margin:0.2em 0 0;font-size:1.1em;">5人に1人（20%）</p>
+</div>
+</div>
+</div>
+<p style="font-weight:700;color:#1A1A1A;font-size:1.05em;">なぜ、こんなことが起きるのか？</p>
+</section>
+
+<!-- S42: 原因（全幅・カード対比） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin:0 0 0.5em;">一般的なスクールは「環境」だけ渡して、<span class="acc">「あなた」を見ていない</span></h2>
+<p style="color:#666;margin:0 0 0.8em;">一人ひとり、状況はまったく違うのに──</p>
+<div style="display:flex;gap:1em;margin-bottom:1em;">
+<div style="flex:1;padding:1em;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.3em;">目的</p>
+<p style="font-weight:700;margin:0;"><span style="color:#666;">副業</span> <span style="color:#ccc;">or</span> <span style="color:#1A1A1A;">本業</span></p>
+</div>
+<div style="flex:1;padding:1em;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.3em;">使える時間</p>
+<p style="margin:0;"><span class="nb" style="font-size:1.6em;">1</span><span style="color:#666;">時間</span> <span style="color:#ccc;">or</span> <span class="nb" style="font-size:1.6em;">8</span><span style="color:#666;">時間</span></p>
+</div>
+<div style="flex:1;padding:1em;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.3em;">資金</p>
+<p style="margin:0;"><span class="nb" style="font-size:1.6em;">10</span><span style="color:#666;">万円</span> <span style="color:#ccc;">or</span> <span class="nb" style="font-size:1.6em;">100</span><span style="color:#666;">万円</span></p>
+</div>
+</div>
+<div style="text-align:center;padding:0.8em;background:#fff;border-radius:12px;border:1px solid #E5E5E5;">
+<p style="color:#666;margin:0 0 0.3em;">それなのに──</p>
+<p style="font-weight:700;color:#1A1A1A;font-size:1.05em;margin:0 0 0.3em;">全員に同じカリキュラムを渡して、「あとは頑張ってください」。</p>
+<p style="font-weight:900;color:#E1530D;font-size:1.1em;margin:0;">だから、<span style="font-size:1.5em;">3人に2人</span>が脱落する。</p>
+</div>
+</section>
+
+<!-- S43: インフラだけでは -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul">EBLには最高のインフラがある。でも──</h2>
+<div style="margin-top:1.2em;display:flex;flex-direction:column;gap:0.6em;">
+<p style="margin:0;color:#666;">「環境はあるけど、自分に合った商品の選び方がわからない」</p>
+<p style="margin:0;color:#666;">「メーカーとの取引ルートはあるけど、何から始めればいいか迷う」</p>
+<p style="margin:0;color:#666;">「一人で進めていると、途中で立ち止まってしまう」</p>
+</div>
+<p style="font-weight:700;color:#1A1A1A;margin-top:1.5em;">インフラだけでは、足りなかった。</p>
+<p class="acc">だからこそ、次の一手を打ちました。</p>
+</section>
+
+<!-- S44: パーソナル誕生（パターンB） -->
+<section class="fc">
+<div>
+<h2 style="font-size:2.4em;color:#E1530D;">それが、EBLパーソナルです</h2>
+<p style="text-align:center;font-weight:700;color:#1A1A1A;margin-top:1em;">一人ひとり、環境が違う。状況が違う。目標も違う。</p>
+<p style="text-align:center;font-weight:900;color:#E1530D;margin-top:0.8em;">あなたの状況に合わせて、あなただけのプランを作る。</p>
+</div>
+</section>
+
+<!-- S45: パーソナルの強み＝選択肢 -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin:0 0 0.3em;">メーカー仕入れは最強の選択肢のひとつ。<br>でも、それが全員に合うとは限らない。</h2>
+<p style="color:#666;margin:0 0 1em;">物販にはさまざまなビジネスモデルがあります。</p>
+<div style="display:flex;gap:0.8em;margin-bottom:1em;">
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-weight:700;color:#E1530D;margin:0;">メーカー仕入れ</p>
+</div>
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-weight:700;color:#1A1A1A;margin:0;">店舗せどり</p>
+</div>
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-weight:700;color:#1A1A1A;margin:0;">ポイント物販</p>
+</div>
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-weight:700;color:#1A1A1A;margin:0;">定点観測物販</p>
+</div>
+</div>
+<div style="padding:1em 1.2em;background:#fff;border-radius:12px;border:2px solid #E1530D;">
+<p style="font-weight:900;color:#E1530D;font-size:1.1em;margin:0 0 0.3em;text-align:center;">EBLパーソナルなら、あなたの状況に合ったモデルを一緒に選べます。</p>
+<p style="color:#666;font-size:0.85em;margin:0;text-align:center;">資金・時間・経験に応じて、最適な道を一緒に見つける。それがパーソナルの強みです。</p>
+</div>
+</section>
+
+<!-- S45.5: トレーナー紹介 -->
+<section>
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">EBLパーソナルのトレーナー</p>
+<h2 class="ul" style="margin:0 0 0.3em;">あなたに合った専門トレーナーがいます</h2>
+<p style="color:#666;font-size:0.85em;margin:0 0 0.8em;">異なる専門性を持つトレーナーが、同じコミュニティに在籍しています。</p>
+<div style="display:flex;gap:1em;">
+<!-- 瑞稀 -->
+<div style="flex:1;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);overflow:hidden;">
+<div style="background:#E1530D;color:#fff;padding:0.6em;text-align:center;font-weight:900;font-size:1em;">瑞稀</div>
+<div style="padding:0.8em;">
+<p style="font-weight:700;color:#1A1A1A;margin:0 0 0.4em;font-size:0.9em;">メーカー仕入れ / BOSS DIRECT</p>
+<p style="font-size:0.78em;color:#666;margin:0;">初心者に寄り添った丁寧な指導が得意。ゼロから始める方の最初のパートナー</p>
+</div>
+</div>
+<!-- 響 -->
+<div style="flex:1;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);overflow:hidden;">
+<div style="background:#E1530D;color:#fff;padding:0.6em;text-align:center;font-weight:900;font-size:1em;">hibiki</div>
+<div style="padding:0.8em;">
+<p style="font-weight:700;color:#1A1A1A;margin:0 0 0.4em;font-size:0.9em;">ポイント物販 / 店舗せどり</p>
+<p style="font-size:0.78em;color:#666;margin:0;">本業サラリーマン×副業のプロ。マイル・ポイント活用にも精通</p>
+</div>
+</div>
+<!-- チームリアン -->
+<div style="flex:1;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);overflow:hidden;">
+<div style="background:#E1530D;color:#fff;padding:0.6em;text-align:center;font-weight:900;font-size:1em;">チームリアン</div>
+<div style="padding:0.8em;">
+<p style="font-weight:700;color:#1A1A1A;margin:0 0 0.4em;font-size:0.9em;">定点観測物販 / 電脳・店舗せどり</p>
+<p style="font-size:0.78em;color:#666;margin:0;">チーム制で複数トレーナーが在籍。基礎から資産化まで体系的にサポート</p>
+</div>
+</div>
+</div>
+<p style="text-align:center;font-weight:700;color:#1A1A1A;margin:0.8em 0 0;">これだけ多様な専門トレーナーが同じコミュニティにいる。<span class="acc">EBLパーソナルだけの環境です。</span></p>
+</section>
+
+<!-- S46: パーソナルジム（パターンJ：reverse split） -->
+<section>
+<div style="position:absolute;top:-15%;right:-8%;width:40%;height:120%;background:rgba(225,83,13,0.03);border-radius:50%;pointer-events:none;z-index:0;"></div>
+
+<div class="spr">
+<div class="v"><div class="ib" style="height:360px;"><img src="https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=600&q=80" alt="gym"></div></div>
+<div class="t">
+<h2>パーソナルジムと同じです</h2>
+<p style="margin-top:1em;">ジムに行くとき、最初に何をしますか？</p>
+<p style="font-weight:700;color:#1A1A1A;margin-top:0.8em;">まず、あなたの体を見る。</p>
+<p style="color:#666;">何を鍛えたいのか。どこが弱いのか。どんな生活をしているのか。</p>
+<p style="margin-top:0.8em;">それを見た上で、<span class="acc">あなたに最適なトレーナーをつける。</span></p>
+<p style="margin-top:0.8em;">EBLパーソナルも同じ。あなたに合ったビジネスモデルを選び、<span class="acc">そのモデルに精通したトレーナーを配置する。</span></p>
+</div>
+</div>
+</section>
+
+<!-- S47: トレーナー交代（パターンD：3カード） -->
+<section data-background-color="#F5F5F5">
+<h2 style="margin-bottom:0.5em;">しかも、トレーナーは交代できる</h2>
+<p style="font-weight:700;color:#1A1A1A;margin-bottom:1em;">同じ金額の中で、担当トレーナーを変更できます。</p>
+<div class="cds">
+<div class="cd" style="border-top:4px solid #E1530D;text-align:center;"><p style="font-weight:700;color:#1A1A1A;margin:0 0 0.3em;">モデル変更</p><p style="margin:0;color:#666;">メーカー仕入れ→店舗せどり</p><p class="acc" style="margin:0.3em 0 0;">交代OK</p></div>
+<div class="cd" style="border-top:4px solid #E1530D;text-align:center;"><p style="font-weight:700;color:#1A1A1A;margin:0 0 0.3em;">ステージ変更</p><p style="margin:0;color:#666;">副業→本業に切替</p><p class="acc" style="margin:0.3em 0 0;">交代OK</p></div>
+<div class="cd" style="border-top:4px solid #E1530D;text-align:center;"><p style="font-weight:700;color:#1A1A1A;margin:0 0 0.3em;">相性が合わない</p><p style="margin:0;color:#666;">トレーナーとの相性</p><p class="acc" style="margin:0.3em 0 0;">追加料金なし</p></div>
+</div>
+<p class="acc" style="font-size:1.1em;margin-top:1em;">こんなビジネススクールは、他に存在しません。</p>
+</section>
+
+<!-- S48: インフラ×パーソナル（パターンF：テーブル） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.8em;">インフラ × パーソナル ＝ EBLパーソナル</h2>
+<div style="display:flex;gap:0;margin-top:1em;">
+<div style="flex:1;border-radius:12px 0 0 12px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+<div style="background:#666;color:#fff;padding:0.7em 1em;font-weight:900;text-align:center;font-size:0.95em;">インフラ（ジムの設備）</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:#eee;">
+<div style="padding:0.7em 1em;background:#fff;">250社以上のメーカー取引</div>
+<div style="padding:0.7em 1em;background:#fff;">BOSS DIRECTの仕入れ環境</div>
+<div style="padding:0.7em 1em;background:#fff;">コミュニティ・情報共有</div>
+<div style="padding:0.7em 1em;background:#fff;">多種多様なビジネスモデル</div>
+</div>
+</div>
+<div style="flex:1;border-radius:0 12px 12px 0;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.06);">
+<div style="background:#E1530D;color:#fff;padding:0.7em 1em;font-weight:900;text-align:center;font-size:0.95em;">パーソナル（専属トレーナー）</div>
+<div style="display:flex;flex-direction:column;gap:1px;background:rgba(225,83,13,0.1);">
+<div style="padding:0.7em 1em;background:#FFF5F0;font-weight:700;color:#1A1A1A;">あなた専用のビジネスカルテ</div>
+<div style="padding:0.7em 1em;background:#FFF5F0;font-weight:700;color:#1A1A1A;">複数トレーナーから最適を配置</div>
+<div style="padding:0.7em 1em;background:#FFF5F0;font-weight:700;color:#1A1A1A;">月2回のオンライン面談</div>
+<div style="padding:0.7em 1em;background:#FFF5F0;font-weight:700;color:#1A1A1A;">トレーナー交代可能</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- S49: 具体内容（パターンI：2x3グリッド） -->
+<section data-background-color="#F5F5F5">
+<h2 class="ul" style="margin-bottom:0.8em;">EBLパーソナルの具体的内容</h2>
+<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:0.6em;">
+<div><div style="background:#E1530D;color:#fff;padding:0.4em 0.7em;border-radius:6px 6px 0 0;font-weight:700;font-size:0.82em;">物販スタートアップ講座</div><div style="background:#fff;padding:0.5em 0.7em;border:1px solid #eee;border-radius:0 0 6px 6px;font-size:0.75em;color:#666;">アカウント開設〜出品規制解除の基礎</div></div>
+<div><div style="background:#E1530D;color:#fff;padding:0.4em 0.7em;border-radius:6px 6px 0 0;font-weight:700;font-size:0.82em;">物販初級・中級講座</div><div style="background:#fff;padding:0.5em 0.7em;border:1px solid #eee;border-radius:0 0 6px 6px;font-size:0.75em;color:#666;">資金管理、在庫管理、クレカ活用術</div></div>
+<div><div style="background:#E1530D;color:#fff;padding:0.4em 0.7em;border-radius:6px 6px 0 0;font-weight:700;font-size:0.82em;">個別Discordサポート</div><div style="background:#fff;padding:0.5em 0.7em;border:1px solid #eee;border-radius:0 0 6px 6px;font-size:0.75em;color:#666;">担当トレーナーにいつでも質問可能</div></div>
+<div><div style="background:#E1530D;color:#fff;padding:0.4em 0.7em;border-radius:6px 6px 0 0;font-weight:700;font-size:0.82em;">月2回のオンライン個別面談</div><div style="background:#fff;padding:0.5em 0.7em;border:1px solid #eee;border-radius:0 0 6px 6px;font-size:0.75em;color:#666;">Zoomで直接、深い指導</div></div>
+<div><div style="background:#E1530D;color:#fff;padding:0.4em 0.7em;border-radius:6px 6px 0 0;font-weight:700;font-size:0.82em;">250社以上のメーカー取引権利</div><div style="background:#fff;padding:0.5em 0.7em;border:1px solid #eee;border-radius:0 0 6px 6px;font-size:0.75em;color:#666;">メーカー・問屋との取引環境</div></div>
+<div><div style="background:#E1530D;color:#fff;padding:0.4em 0.7em;border-radius:6px 6px 0 0;font-weight:700;font-size:0.82em;">Zoom全体勉強会</div><div style="background:#fff;padding:0.5em 0.7em;border:1px solid #eee;border-radius:0 0 6px 6px;font-size:0.75em;color:#666;">リサーチ・仕入れ・販売の解説</div></div>
+</div>
+</section>
+
+<!-- S50: カルテ（パターンG：フロー） -->
+<section>
+<h2 class="ul" style="margin-bottom:0.8em;">あなた専用のビジネスカルテを作成</h2>
+<div class="arrow-flow" style="margin:1.5em 0;">
+<div class="af-step af-s1"><p class="af-num">STEP 01</p><p class="af-txt">状況ヒアリング</p></div>
+<div class="af-step af-s2"><p class="af-num">STEP 02</p><p class="af-txt">ビジネスモデル作成</p></div>
+<div class="af-step af-s3"><p class="af-num">STEP 03</p><p class="af-txt">指導案の作成</p></div>
+<div class="af-step af-s5"><p class="af-num">STEP 04</p><p class="af-txt">行動指標の作成</p></div>
+</div>
+<p style="text-align:center;">あなたの状況に最も合った専属トレーナーをアテンドします。</p>
+</section>
+
+<!-- S51: チェックリスト -->
+<section data-background-color="#F5F5F5">
+<h2 style="margin-bottom:0.5em;">こんな方にEBLパーソナルはおすすめです</h2>
+<p style="font-weight:700;color:#1A1A1A;margin-bottom:1em;">当てはまるものにチェックしてみてください。</p>
+<div class="ck">
+<p>収入の柱をもう1本作りたいけど、何からやればいいかわからない</p>
+<p>メルカリはやったけど、次のステップが見えない</p>
+<p>Amazonアカウントの開設や出品規制でつまずいている</p>
+<p>仕入れ先の開拓方法がわからない</p>
+<p>一人で続けるモチベーションが保てない</p>
+<p>自分に合ったやり方を教えてほしい</p>
+<p>高額コンサルに騙されたくない</p>
+</div>
+<p class="acc" style="margin-top:0.8em;">1つでも当てはまるなら、パーソナルがあなたの答えになるはずです。</p>
+</section>
+
+<!-- S52: セクション05 -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:500px;height:500px;top:-150px;right:-100px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;"><span class="fe" style="font-weight:800;font-size:2em;">05</span><span style="display:inline-block;width:2px;height:0.9em;background:rgba(255,255,255,0.4);margin:0 0.6em;vertical-align:middle;"></span><span style="font-weight:900;font-size:2em;">価格</span></div>
+</section>
+
+<!-- S53: コンサル相場（パターンD：カード） -->
+<section>
+<h2 class="ul" style="margin-bottom:0.8em;">一般的なコンサルの価格、知っていますか？</h2>
+<div style="display:flex;align-items:flex-end;gap:1em;margin:1.5em 0;height:250px;">
+<div style="flex:1;height:40%;background:linear-gradient(180deg,#E8723A,#F4A880);border-radius:8px 8px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:0.5em;">
+<p style="font-weight:700;margin:0;font-size:0.85em;">情報商材</p>
+<span style="font-family:'Noto Sans JP';font-weight:900;font-size:1.5em;">10-50</span><span style="font-size:0.75em;">万円</span>
+</div>
+<div style="flex:1;height:70%;background:linear-gradient(180deg,#D4570E,#E8723A);border-radius:8px 8px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:0.5em;">
+<p style="font-weight:700;margin:0;font-size:0.85em;">高額スクール</p>
+<span style="font-family:'Noto Sans JP';font-weight:900;font-size:1.5em;">30-80</span><span style="font-size:0.75em;">万円</span>
+</div>
+<div style="flex:1;height:100%;background:linear-gradient(180deg,#C44A0B,#D4570E);border-radius:8px 8px 0 0;display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;padding:0.5em;">
+<p style="font-weight:700;margin:0;font-size:0.85em;">個別コンサル</p>
+<span style="font-family:'Noto Sans JP';font-weight:900;font-size:1.5em;">30-100</span><span style="font-size:0.75em;">万円</span>
+</div>
+</div>
+<p style="color:#666;">しかも、期間が終われば終了。サポートも環境も途切れる。</p>
+</section>
+
+<!-- S54: 価格発表（全幅・インパクト） -->
+<section data-background-color="#F5F5F5">
+<div style="text-align:center;">
+<p style="font-size:0.82em;color:#E1530D;font-weight:700;margin:0 0 0.2em;">e Business Labo パーソナル ─ 2026年4月生 募集開始</p>
+<h2 style="font-size:1.6em;margin:0 0 0.5em;text-align:center;">EBLパーソナルの価格</h2>
+</div>
+<!-- メインの月額 -->
+<div style="text-align:center;padding:0.8em 2em;background:#fff;border-radius:16px;border:3px solid #E1530D;box-shadow:0 4px 20px rgba(225,83,13,0.15);margin-bottom:0.6em;">
+<p style="font-size:0.8em;color:#E1530D;font-weight:700;margin:0 0 0.1em;">月額</p>
+<div style="display:flex;align-items:baseline;justify-content:center;gap:0.2em;">
+<span class="nb" style="font-size:4em;">5</span><span style="font-size:1.6em;color:#E1530D;font-weight:900;">万円</span><span style="font-size:0.85em;color:#666;">（税別）</span>
+</div>
+</div>
+<!-- 入会金 + 継続割引を横並び -->
+<div style="display:flex;gap:0.8em;">
+<div style="flex:1;padding:0.6em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.7em;color:#666;margin:0 0 0.2em;">入会金（初回のみ）</p>
+<p style="margin:0;font-weight:900;color:#1A1A1A;font-size:1.1em;">10万円</p>
+</div>
+<div style="flex:1;padding:0.6em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.7em;color:#666;margin:0 0 0.2em;">半年継続で</p>
+<p style="margin:0;font-weight:900;color:#E1530D;font-size:1.1em;">月額 <span style="font-size:1.2em;">4</span>万円</p>
+</div>
+<div style="flex:1;padding:0.6em;background:#fff;border-radius:10px;border:2px solid #E1530D;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.7em;color:#666;margin:0 0 0.2em;">1年継続で</p>
+<p style="margin:0;font-weight:900;color:#E1530D;font-size:1.1em;">月額 <span style="font-size:1.2em;">3</span>万円</p>
+</div>
+</div>
+</section>
+
+<!-- S55: なぜこの価格（パターンA：split） -->
+<section data-background-color="#F5F5F5">
+<div class="sp">
+<div class="t">
+<h2>なぜ、この価格で提供できるのか？</h2>
+<p style="font-weight:700;color:#1A1A1A;margin-top:1em;">「稼げるなら自分でやればいいじゃないですか」</p>
+<p style="color:#666;">──よく聞かれます。正直に答えます。</p>
+<p class="acc" style="margin-top:0.8em;">理由は、スケールメリットです。</p>
+<p style="margin-top:0.6em;">仲間が増えれば仕入れロットが大きくなる。コストが下がり、全員の利益率が上がる。</p>
+<p style="font-weight:700;color:#1A1A1A;margin-top:0.8em;">あなたが稼ぐことが、コミュニティ全体の力になる。</p>
+</div>
+<div class="v"><div class="ib" style="height:340px;"><img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="team"></div></div>
+</div>
+</section>
+
+<!-- S56: ビジョン（パターンB） -->
+<section class="fc">
+<div>
+<h2 style="font-size:2.2em;">これが、我々の描く未来</h2>
+<p style="text-align:center;font-weight:700;color:#1A1A1A;margin-top:1em;">一人で戦う時代は、もう終わりました。</p>
+<p style="text-align:center;color:#666;margin-top:0.8em;">仲間と一緒に仕入れて、一緒に成長して、一緒に稼ぎ続ける。</p>
+<p style="text-align:center;font-weight:900;color:#E1530D;margin-top:1em;font-size:1.1em;">EBLパーソナルは、あなたの一生涯のパートナーです。</p>
+</div>
+</section>
+
+<!-- S57: セクション06 -->
+<section class="sb" data-background-color="#E1530D">
+<div style="position:absolute;width:500px;height:500px;top:-150px;right:-100px;border-radius:50%;background:rgba(255,255,255,0.08);pointer-events:none;"></div>
+<div style="position:relative;z-index:1;"><span class="fe" style="font-weight:800;font-size:2em;">06</span><span style="display:inline-block;width:2px;height:0.9em;background:rgba(255,255,255,0.4);margin:0 0.6em;vertical-align:middle;"></span><span style="font-weight:900;font-size:2em;">お申し込み</span></div>
+</section>
+
+<!-- S58: 何から（パターンB） -->
+<section class="fc" data-background-color="#F5F5F5">
+<div>
+<p style="text-align:center;color:#666;">ここまで聞いて、こう思っていませんか？</p>
+<h2 style="font-size:2em;margin-top:0.3em;">「で、自分は何から始めればいいの？」</h2>
+<p style="text-align:center;font-weight:900;color:#E1530D;margin-top:1.5em;font-size:1.1em;">その答えを、30分で出します。</p>
+</div>
+</section>
+
+<!-- S59: 診断 -->
+<section>
+<h2 class="ul" style="margin:0 0 0.5em;">無料パーソナル診断</h2>
+<p class="acc" style="margin:0 0 0.8em;">渡邉・瑞稀が1対1であなたの状況を診断します。</p>
+<div style="display:flex;gap:2em;margin-bottom:1em;">
+<!-- 写真2枚 -->
+<div style="display:flex;gap:1em;flex-shrink:0;">
+<div style="text-align:center;">
+<div style="width:140px;height:140px;border-radius:50%;overflow:hidden;border:3px solid #E1530D;"><img src="渡邉さん画像.png" alt="渡邉泰三" style="width:100%;height:100%;object-fit:cover;"></div>
+<p style="font-size:0.75em;font-weight:700;color:#1A1A1A;margin:0.4em 0 0;">渡邉 泰三</p>
+</div>
+<div style="text-align:center;">
+<div style="width:140px;height:140px;border-radius:50%;overflow:hidden;border:3px solid #E1530D;"><img src="瑞稀さん画像.png" alt="瑞稀" style="width:100%;height:100%;object-fit:cover;"></div>
+<p style="font-size:0.75em;font-weight:700;color:#1A1A1A;margin:0.4em 0 0;">瑞稀</p>
+</div>
+</div>
+<!-- 診断内容 -->
+<div style="flex:1;display:flex;flex-direction:column;gap:0.6em;">
+<div style="display:flex;align-items:flex-start;gap:0.6em;padding:0.6em 0.8em;background:#F5F5F5;border-radius:8px;">
+<span style="color:#E1530D;font-weight:900;">①</span>
+<p style="margin:0;">あなたの目標・資金・使える時間をヒアリング</p>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;padding:0.6em 0.8em;background:#F5F5F5;border-radius:8px;">
+<span style="color:#E1530D;font-weight:900;">②</span>
+<p style="margin:0;">あなたに最適なビジネスモデルをその場でご提案</p>
+</div>
+<div style="display:flex;align-items:flex-start;gap:0.6em;padding:0.6em 0.8em;background:#F5F5F5;border-radius:8px;">
+<span style="color:#E1530D;font-weight:900;">③</span>
+<p style="margin:0;">今後やるべきことが明確になる → <span class="acc">もう迷わない</span></p>
+</div>
+</div>
+</div>
+<div style="padding:0.7em;background:#F5F5F5;border-radius:8px;text-align:center;">
+<p style="font-weight:700;color:#1A1A1A;margin:0;">入会する必要はありません。</p>
+<p style="font-size:0.85em;color:#666;margin:0.2em 0 0;">診断を受けるだけで、「次の一歩」がわかります。</p>
+</div>
+</section>
+
+<!-- S60: 限定 -->
+<section data-background-color="#F5F5F5">
+<!-- 上部：権利の提示 -->
+<div style="text-align:center;padding:1em 1.5em;background:#fff;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.06);margin-bottom:1em;">
+<h2 style="font-size:1.8em;margin:0;text-align:center;">本日のセミナー参加者<span class="acc">全員</span>に、<br><span class="acc">1回限り</span>の診断受講権利があります</h2>
+<p style="font-size:0.9em;font-weight:700;color:#1A1A1A;margin:0.5em 0 0;text-align:center;">※本日中のお申し込みに限ります</p>
+</div>
+<!-- 中段：制限の提示 -->
+<p style="font-weight:700;color:#1A1A1A;font-size:1.1em;margin:0 0 0.6em;text-align:center;">ただし──</p>
+<div style="display:flex;gap:1em;margin-bottom:0.8em;">
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.2em;">1回の診断時間</p>
+<span class="nb" style="font-size:2em;">30</span><span style="color:#666;">分</span>
+</div>
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.2em;">診断スタイル</p>
+<span class="nb" style="font-size:2em;">1対1</span>
+</div>
+<div style="flex:1;padding:0.8em;background:#fff;border-radius:10px;box-shadow:0 2px 8px rgba(0,0,0,0.06);text-align:center;">
+<p style="font-size:0.75em;color:#666;margin:0 0 0.2em;">1日の対応人数</p>
+<span style="font-weight:900;color:#E1530D;font-size:1.6em;">上限あり</span>
+</div>
+</div>
+<!-- 下部：緊急性 -->
+<div style="text-align:center;padding:0.8em;background:#E1530D;border-radius:12px;">
+<p style="color:#fff;font-weight:900;font-size:1.3em;margin:0;">早い者順で埋まっていきます。</p>
+</div>
+</section>
+
+<!-- S61: 申込（QRコード中央） -->
+<section>
+<h2 style="text-align:center;margin-bottom:1em;">今から3分間、申込みの時間を取ります</h2>
+<div style="text-align:center;"><img src="パーソナル診断QR.png" alt="QRコード" style="width:250px;display:inline-block;"></div>
+<p style="text-align:center;color:#666;margin-top:1em;">お申込みはQRコード or Zoomチャットの LINEリンクから</p>
+<p style="text-align:center;color:#666;">悩んでいる時間が、一番もったいないです。</p>
+<p style="text-align:center;font-weight:900;color:#E1530D;margin-top:0.5em;">「いつかやろう」の「いつか」は来ません。今日がその日です。</p>
+</section>
+
+<!-- S62: ありがとう -->
+<section>
+<h2 style="font-size:1.8em;margin:0 0 0.5em;">お申し込みありがとうございます</h2>
+<div style="display:flex;gap:2em;align-items:center;">
+<!-- 写真2枚 -->
+<div style="display:flex;gap:1em;flex-shrink:0;">
+<div style="text-align:center;">
+<div style="width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid #E1530D;"><img src="渡邉さん画像.png" alt="渡邉泰三" style="width:100%;height:100%;object-fit:cover;"></div>
+<p style="font-size:0.7em;font-weight:700;color:#1A1A1A;margin:0.3em 0 0;">渡邉 泰三</p>
+</div>
+<div style="text-align:center;">
+<div style="width:120px;height:120px;border-radius:50%;overflow:hidden;border:3px solid #E1530D;"><img src="瑞稀さん画像.png" alt="瑞稀" style="width:100%;height:100%;object-fit:cover;"></div>
+<p style="font-size:0.7em;font-weight:700;color:#1A1A1A;margin:0.3em 0 0;">瑞稀</p>
+</div>
+</div>
+<!-- テキスト + QR -->
+<div style="flex:1;">
+<p style="margin:0 0 0.5em;">本日ご参加いただいたお礼に…<span class="acc">LIVE参加特典もお渡しします！</span></p>
+<div style="display:flex;align-items:center;gap:1.5em;padding:1em;background:#F5F5F5;border-radius:10px;margin-bottom:0.8em;">
+<img src="参加特典QR.png" alt="参加特典QR" style="width:200px;display:block;flex-shrink:0;">
+<div>
+<p style="font-weight:700;color:#1A1A1A;margin:0 0 0.2em;font-size:1.1em;">参加特典はこちらから</p>
+<p style="font-size:0.85em;color:#666;margin:0;">QRコードを読み取ってお受け取りください</p>
+</div>
+</div>
+<p style="color:#666;margin:0;">それでは、質疑応答に入ります。<br>気になることがあれば、チャットで何でも聞いてください。</p>
+</div>
+</div>
+</section>
+
+</div>
+</div>
+<div class="gf" id="gf"><span class="lo">e Business Labo</span><span class="pn" id="pn"></span></div>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script>
+Reveal.initialize({hash:true,slideNumber:false,width:1280,height:720,margin:0.04,transition:'fade',backgroundTransition:'fade',center:true,controls:true,progress:true,controlsLayout:'edges'});
+function uf(){var s=Reveal.getCurrentSlide(),i=Reveal.getIndices(),t=Reveal.getTotalSlides(),c=i.h+1;var p=document.getElementById('pn'),f=document.getElementById('gf');p.textContent=c===1?'':String(c-1).padStart(2,'0')+' / '+String(t-1).padStart(2,'0');f.classList.toggle('dk',s.classList.contains('sb'));}
+Reveal.on('slidechanged',uf);Reveal.on('ready',uf);
+</script>
+</body>
+</html>
